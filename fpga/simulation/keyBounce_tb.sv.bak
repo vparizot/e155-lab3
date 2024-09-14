@@ -1,0 +1,60 @@
+// Victoria Parizot
+// vparizot@g.hmc.edu
+// 09/09/2024
+
+// descr: testbench for mux module of lab 2
+
+`timescale 1ns/1ns
+
+module keyBounce_tb();
+ // Set up test signals
+	logic clk, reset;
+	logic [3:0] keyDecoded;
+	logic keyPressed;
+	logic [3:0] keyDebounced;
+
+
+
+ // Instantiate the device under test
+ keyBounce dut(.clk(clk), .reset(reset), .keyDecoded(keyDecoded), .keyPressed(keyPressed), .keyDebounced(keyDebounced));
+
+ // Generate clock signal with a period of 10 timesteps.
+ always
+   begin
+     clk = 1; #5;
+     clk = 0; #5;
+   end
+  
+ // At the start of the simulation:
+ //  - Load the testvectors
+ //  - Pulse the reset line (if applicable)
+ initial
+   begin
+	reset = 1; 
+	#20;
+	reset = 0; 
+	#20;
+
+   	keyDecoded = 4'b1000;
+	keyPressed = 1;
+	#15;
+	keyDecoded = 4'b1000;
+	keyPressed = 0;
+	#20;
+	keyDecoded = 4'b1000;
+	keyPressed = 1;
+	#100;
+	
+	keyDecoded = 4'b0100;
+	keyPressed = 1;
+	#15;
+	keyDecoded = 4'b0100;
+	keyPressed = 0;
+	#15;
+	keyDecoded = 4'b0100;
+	keyPressed = 1;
+	#100;
+
+	
+   end
+endmodule

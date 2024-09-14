@@ -1,1 +1,28 @@
 
+module keyBounce(
+	input logic clk, reset,
+	input logic [3:0] keyDecoded,
+	input logic keyPressed,
+	output logic [3:0] keyDebounced
+);
+
+
+//define counter variable
+logic [10:0] counter = 0;
+
+always_ff @(posedge clk, posedge reset)
+	begin
+		if (counter > 5) keyDebounced = keyDecoded;
+	
+		if (keyPressed) counter <= counter + 1;
+			
+		else counter <= 0;
+			
+
+
+	end
+
+
+
+
+endmodule

@@ -1,27 +1,11 @@
-C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv {0 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
+C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
 -- Compiling module scanfsm
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(33): near "always_comb": syntax error, unexpected "SystemVerilog keyword 'always_comb'".
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(36): 'S3' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(36): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(38): 'S4' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(38): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(40): 'S5' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(40): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(42): 'S6' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(42): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(44): 'S7' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(44): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(46): 'S8' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(46): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(48): 'S9' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(48): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(50): 'S10' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(50): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
-** Error: C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(52): 'S11' already exists - must not be redefined.
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv(52): near "if": syntax error, unexpected if, expecting "SystemVerilog keyword 'assert' " or "SystemVerilog keyword 'assume' " or restrict .
 
-} {4.0 23.0} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
+Top level modules:
+	scanfsm
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
 -- Compiling module top
 
@@ -49,12 +33,21 @@ Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oc
 Top level modules:
 	sevensegments
 
-} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv {0 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm_tb.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module scanfsm_tb
+
+Top level modules:
+	scanfsm_tb
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
 -- Compiling module keyBounce
-** Error: (vlog-13069) C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv(3): near "key": syntax error, unexpected IDENTIFIER, expecting ')'.
 
-} {4.0 5.0} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
+Top level modules:
+	keyBounce
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
 -- Compiling module mux
 
