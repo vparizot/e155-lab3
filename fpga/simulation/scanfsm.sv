@@ -2,10 +2,10 @@
 module scanfsm(
 	input logic clk, reset,
 	input logic c0, c1, c2, c3,
-	output logic [3:0] r, keyDecoded
+	output logic [3:0] keyDecoded
 );
 
-	//logic r0, r1, r2, r3;
+	logic [3:0] r; 
 
 	// define the states
 	typedef enum logic [3:0] {S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11} statetype;
@@ -50,10 +50,9 @@ module scanfsm(
 			    else nextstate = S9;
 			//default: nextstate = S11;
 		endcase
-	
+	sim:/scanfsm_tb
 	
 	// output logic
-	
 	scanDecoder m1({r,c0,c1,c2,c3}, keyDecoded);
 	
 

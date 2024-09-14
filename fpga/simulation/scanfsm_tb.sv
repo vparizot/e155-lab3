@@ -11,13 +11,13 @@ module scanfsm_tb();
 	
 	logic clk, reset;
 	logic c0, c1, c2, c3;
-	logic [3:0] r;
-	logic [3:0] key, key_expected;
+	//logic [3:0] r;
+	logic [3:0] keyDecoded, keyDecoded_expected;
 	//logic [7:0] key_expected;
 
 
  // Instantiate the device under test
- scanfsm dut(.clk(clk), .reset(reset), .c0(c0), .c1(c1), .c2(c2), .c3(c3), .r(r), .key(key));
+ scanfsm dut(.clk(clk), .reset(reset), .c0(c0), .c1(c1), .c2(c2), .c3(c3), .keyDecoded(keyDecoded));
 
  // Generate clock signal with a period of 10 timesteps.
  always
@@ -54,11 +54,10 @@ module scanfsm_tb();
 	c3 = 0;
 
 	#100;
-	c0 = 0;
+	c0 = 1;
 	c1 = 0;
-	c2 = 1;
+	c2 = 0;
 	c3 = 0;
-
 
 
 
