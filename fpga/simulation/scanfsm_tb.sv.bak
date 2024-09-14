@@ -17,7 +17,7 @@ module scanfsm_tb();
 
 
  // Instantiate the device under test
- scanfsm dut(.clk(clk), .reset(reset), .c0(c0), .c1(c1), .c2(c2), .c3(c3), .keyDecoded(keyDecoded), keyPressed(keyPressed));
+ scanfsm dut(.clk(clk), .reset(reset), .c0(c0), .c1(c1), .c2(c2), .c3(c3), .keyDecoded(keyDecoded), .keyPressed(keyPressed));
 
  // Generate clock signal with a period of 10 timesteps.
  always

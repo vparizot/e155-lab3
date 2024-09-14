@@ -11,7 +11,7 @@ cModel Technology
 dC:/lscc/radiant/3.2/modeltech/win32loem
 vhsoscEnable
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1726352331
+Z1 !s110 1726355391
 !i10b 1
 !s100 ZMoOP08L@4Y?V`M@klVCh3
 IbPf^0FBm:6O?3>e5Ok7T;1
@@ -20,14 +20,14 @@ Z2 dC:/Users/vparizot/E155/lab3_mvp/fpga/simulation
 w1726181487
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv
-!i122 295
+!i122 454
 L0 8 29
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 Z4 OT;L;2021.4;73
 r1
 !s85 0
 31
-Z5 !s108 1726352331.000000
+Z5 !s108 1726355391.000000
 !s107 C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv|
 !s101 -O0
@@ -39,15 +39,15 @@ vkeyBounce
 R0
 R1
 !i10b 1
-!s100 `Eif5X9cRho_<L?:@K7S>2
-I_dAbT[H39VJ_EV8ZbjRPI3
+!s100 7d5;HK84ORUNHNi^o<AH10
+IlMN_U<Gj?[SZfRKWOGdPD1
 S1
 R2
-w1726352327
+w1726354327
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce.sv
-!i122 301
-L0 2 28
+!i122 460
+L0 2 23
 R3
 R4
 r1
@@ -72,7 +72,7 @@ R2
 w1726352108
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce_tb.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/keyBounce_tb.sv
-!i122 302
+!i122 461
 L0 9 53
 R3
 R4
@@ -98,7 +98,7 @@ R2
 w1726181489
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
-!i122 296
+!i122 455
 L0 7 8
 R3
 R4
@@ -123,7 +123,7 @@ R2
 w1726347930
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanDecoder.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanDecoder.sv
-!i122 299
+!i122 458
 L0 3 30
 R3
 R4
@@ -149,7 +149,7 @@ R2
 w1726349998
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
-!i122 298
+!i122 457
 L0 2 62
 R3
 R4
@@ -167,14 +167,14 @@ vscanfsm_tb
 R0
 R1
 !i10b 1
-!s100 W:e0D5iY>UHUT2I?e^ZbI2
-I2BNS5GG]?PAMYRm=PmLP=0
+!s100 j60`5c2a>LL9XmVDk^m^52
+IgXRaXf]CQEAULbC00nHaS3
 S1
 R2
-w1726350022
+w1726354683
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm_tb.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm_tb.sv
-!i122 300
+!i122 459
 L0 9 59
 R3
 R4
@@ -199,7 +199,7 @@ R2
 w1726181490
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/sevensegments.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/sevensegments.sv
-!i122 294
+!i122 453
 L0 3 29
 R3
 R4
@@ -213,18 +213,68 @@ R5
 !i113 1
 R6
 R7
+vshifter
+R0
+R1
+!i10b 1
+!s100 aW?4;59ZC;JimPOea]YcS1
+IzSOAT3?9gJ6Ob6K;fD=2b2
+S1
+R2
+w1726355279
+8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter.sv
+FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter.sv
+!i122 462
+L0 1 18
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+vshifter_tb
+R0
+!s110 1726355392
+!i10b 1
+!s100 6za[jQ5[b7bZmhH>Zf=gF2
+I@]:I[d]Ye]adhmooO=`cB0
+S1
+R2
+w1726354910
+8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter_tb.sv
+FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter_tb.sv
+!i122 463
+L0 2 28
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/shifter_tb.sv|
+!s101 -O0
+!i113 1
+R6
+R7
 vtop
 R0
 R1
 !i10b 1
-!s100 Bhob?W50OE7@3dl`9F7`[0
-IOInN[5imme0o0[jJ1]>Wm3
+!s100 NBmO]7CQOb34_<j9WX?Wi1
+I]ZA<h0U4Mo^91Ld7nYo9n3
 S1
 R2
-w1726349803
+w1726355387
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
-!i122 297
+!i122 456
 L0 7 36
 R3
 R4

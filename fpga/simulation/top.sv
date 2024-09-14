@@ -18,24 +18,24 @@ module top(
 scanfsm m1(clk, reset, c0, c1, c2, c3, decodedKey);
 
 // check decodedKey for switch bouncing
-
+keyBounce m2(clk, reset, keyDecoded, keyPressed, keyDebounced);
 
 
 // shift digit displayed
-
+shifter m3(keyDebounced, s1, s2);
 
 
 //oscilate selector variable
-hsoscEnable m2(clk, selector); // create selector signal
+hsoscEnable m4(clk, selector); // create selector signal
  
 // deliver sy
-mux2 m3(s1, s2, selector, sy);
+mux2 m5(s1, s2, selector, sy);
 
 // pass sy to read into hex output
-sevensegments m4(sy, segOut);
+sevensegments m6(sy, segOut);
 
 // call led sum
-sum2 m5(s1, s2, led);
+sum2 m7(s1, s2, led);
 
 assign selector2 = ~selector; 
 

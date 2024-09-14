@@ -31,8 +31,8 @@ module scanfsm_tb();
  //  - Pulse the reset line (if applicable)
  initial
    begin
-   	reset = 1; #20
-	reset = 0; #20
+   	reset = 1; #20;
+	reset = 0; #20;
 	
 	c0 = 0;
 	c1 = 0;
