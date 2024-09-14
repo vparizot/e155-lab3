@@ -1,1 +1,43 @@
+C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module scanfsm
 
+Top level modules:
+	scanfsm
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanDecoder.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanDecoder.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module scanDecoder
+
+Top level modules:
+	scanDecoder
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module hsoscEnable
+
+Top level modules:
+	hsoscEnable
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/sevensegments.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/sevensegments.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module sevensegments
+
+Top level modules:
+	sevensegments
+
+} {} {}} C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv {1 {vlog -work work -sv -stats=none C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}}

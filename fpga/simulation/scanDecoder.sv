@@ -1,0 +1,32 @@
+
+
+module scanDecoder(
+	input logic [7:0] key,
+	output logic [3:0] keyDecoded);
+// takes in dipswitch as 4 digit binary value and 
+// outputs hexidecimal value on seven segment display
+
+always_comb
+	begin
+		case (key) 
+		//  format: {r0,r1,r2,r3,c0,c1,c2,c3}
+			8'b1000_0100 : keyDecoded = 4'h0;
+			8'b0001_1000 : keyDecoded = 4'h1;
+			8'b0001_0100 : keyDecoded = 4'h2;
+			8'b0001_0010 : keyDecoded = 4'h3;
+			8'b0010_1000 : keyDecoded = 4'h4;
+			8'b0010_0100 : keyDecoded = 4'h5;
+			8'b0010_0010 : keyDecoded = 4'h6;
+			8'b0100_1000 : keyDecoded = 4'h7;
+			8'b0100_0100 : keyDecoded = 4'h8;
+			8'b0100_0010 : keyDecoded = 4'h9;
+			8'b1000_1000 : keyDecoded = 4'ha;
+			8'b1000_0010 : keyDecoded = 4'hb;
+			8'b0001_0001 : keyDecoded = 4'hc;
+			8'b0010_0001 : keyDecoded = 4'hd;
+			8'b0100_0001 : keyDecoded = 4'he;
+			8'b1000_0001 : keyDecoded = 4'hf;
+			default: keyDecoded = 4'h0;
+		endcase
+	end
+endmodule

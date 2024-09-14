@@ -1,0 +1,63 @@
+
+module scanfsm(
+	input logic clk, reset,
+	input logic c0, c1, c2, c3,
+	output logic [3:0] r, keyDecoded
+);
+
+	//logic r0, r1, r2, r3;
+
+	// define the states
+	typedef enum logic [3:0] {S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11} statetype;
+	statetype state, nextstate;
+
+	// state register
+	always_ff @(posedge clk, posedge reset)
+		if (reset) state <= S0;
+		else state <= nextstate;
+
+	assign r[0] = (state == S0) | (state == S1) | (state == S2);
+	assign r[1] = (state == S3) | (state == S4) | (state == S5);
+	assign r[2] = (state == S6) | (state == S7) | (state == S8);
+	assign r[3] = (state == S9) | (state == S10) | (state == S11);
+
+	// Next state logic
+	always_comb
+		case (state)
+			S0: if (c0|c1|c2|c3) nextstate = S1;
+			    else nextstate = S3;
+			S1: if (c0|c1|c2|c3) nextstate = S2;
+			    else nextstate = S0;
+			S2: if (c0|c1|c2|c3) nextstate = S2;
+			    else nextstate = S0;
+			S3: if (c0|c1|c2|c3) nextstate = S4;
+			    else nextstate = S6;
+			S4: if (c0|c1|c2|c3) nextstate = S5;
+			    else nextstate = S3;
+			S5: if (c0|c1|c2|c3) nextstate = S5;
+			    else nextstate = S0;
+			S6: if (c0|c1|c2|c3) nextstate = S7;
+			    else nextstate = S9;
+			S7: if (c0|c1|c2|c3) nextstate = S8;
+			    else nextstate = S6;
+			S8: if (c0|c1|c2|c3) nextstate = S8;
+			    else nextstate = S6;
+			S9: if (c0|c1|c2|c3) nextstate = S10;
+			    else nextstate = S0;
+			S10: if (c0|c1|c2|c3) nextstate = S11;
+			    else nextstate = S9;
+			S11: if (c0|c1|c2|c3) nextstate = S11;
+			    else nextstate = S9;
+			//default: nextstate = S11;
+		endcase
+	
+	
+	// output logic
+	
+	scanDecoder m1({r,c0,c1,c2,c3}, keyDecoded);
+	
+
+	//assign key =  {r0,r1,r2,r3,c0,c1,c2,c3}; //(state == S1) |(state == S4)|(state == S7)|(state == S10 )&&
+
+
+endmodule  
