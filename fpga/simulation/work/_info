@@ -11,7 +11,7 @@ cModel Technology
 dC:/lscc/radiant/3.2/modeltech/win32loem
 vhsoscEnable
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1726348060
+Z1 !s110 1726350025
 !i10b 1
 !s100 ZMoOP08L@4Y?V`M@klVCh3
 IbPf^0FBm:6O?3>e5Ok7T;1
@@ -20,14 +20,14 @@ Z2 dC:/Users/vparizot/E155/lab3_mvp/fpga/simulation
 w1726181487
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv
-!i122 168
+!i122 198
 L0 8 29
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 Z4 OT;L;2021.4;73
 r1
 !s85 0
 31
-Z5 !s108 1726348060.000000
+Z5 !s108 1726350025.000000
 !s107 C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/hsoscEnable.sv|
 !s101 -O0
@@ -46,7 +46,7 @@ R2
 w1726181489
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/mux.sv
-!i122 169
+!i122 199
 L0 7 8
 R3
 R4
@@ -71,7 +71,7 @@ R2
 w1726347930
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanDecoder.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanDecoder.sv
-!i122 172
+!i122 202
 L0 3 30
 R3
 R4
@@ -90,15 +90,15 @@ vscanfsm
 R0
 R1
 !i10b 1
-!s100 >__ea3l<O^2RM`ZDkE:g00
-IDD<SaIGEe5VWlG14Yj3?z2
+!s100 Bf;j[?iG7N<YWCIBWgD@>3
+In?o6co_z4OGHeh?QMcBdD2
 S1
 R2
-w1726347992
+w1726349998
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm.sv
-!i122 171
-L0 2 61
+!i122 201
+L0 2 62
 R3
 R4
 r1
@@ -115,14 +115,14 @@ vscanfsm_tb
 R0
 R1
 !i10b 1
-!s100 BZR3d2ob<eOaOWWk4eMCe2
-IBlEj<JBVLVCMj5WF:UL6R2
+!s100 W:e0D5iY>UHUT2I?e^ZbI2
+I2BNS5GG]?PAMYRm=PmLP=0
 S1
 R2
-w1726348058
+w1726350022
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm_tb.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/scanfsm_tb.sv
-!i122 173
+!i122 203
 L0 9 59
 R3
 R4
@@ -147,7 +147,7 @@ R2
 w1726181490
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/sevensegments.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/sevensegments.sv
-!i122 167
+!i122 197
 L0 3 29
 R3
 R4
@@ -165,15 +165,15 @@ vtop
 R0
 R1
 !i10b 1
-!s100 8m<oWFm5kj_]D1ROeG:S[2
-I3^hRZHfLBUDUWZcVl?AIm1
+!s100 Bhob?W50OE7@3dl`9F7`[0
+IOInN[5imme0o0[jJ1]>Wm3
 S1
 R2
-w1726342110
+w1726349803
 8C:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
 FC:/Users/vparizot/E155/lab3_mvp/fpga/simulation/top.sv
-!i122 170
-L0 7 35
+!i122 200
+L0 7 36
 R3
 R4
 r1

@@ -2,7 +2,8 @@
 module scanfsm(
 	input logic clk, reset,
 	input logic c0, c1, c2, c3,
-	output logic [3:0] keyDecoded
+	output logic [3:0] keyDecoded, 
+	output logic keyPressed
 );
 
 	logic [3:0] r; 
@@ -20,7 +21,7 @@ module scanfsm(
 	assign r[1] = (state == S3) | (state == S4) | (state == S5);
 	assign r[2] = (state == S6) | (state == S7) | (state == S8);
 	assign r[3] = (state == S9) | (state == S10) | (state == S11);
-
+	assign keyPressed = (state == S1) | (state == S2) | (state == S4)|(state == S5) | (state == S7) | (state == S8) | (state == S10) | (state == S11);
 	// Next state logic
 	always_comb
 		case (state)
@@ -28,7 +29,7 @@ module scanfsm(
 			    else nextstate = S3;
 			S1: if (c0|c1|c2|c3) nextstate = S2;
 			    else nextstate = S0;
-			S2: if (c0|c1|c2|c3) nextstate = S2;
+			S2: if (c0|c1|c2|c3) nextstate = S2;	// Next state logic
 			    else nextstate = S0;
 			S3: if (c0|c1|c2|c3) nextstate = S4;
 			    else nextstate = S6;
@@ -50,7 +51,7 @@ module scanfsm(
 			    else nextstate = S9;
 			//default: nextstate = S11;
 		endcase
-	sim:/scanfsm_tb
+	//sim:/scanfsm_tb
 	
 	// output logic
 	scanDecoder m1({r,c0,c1,c2,c3}, keyDecoded);

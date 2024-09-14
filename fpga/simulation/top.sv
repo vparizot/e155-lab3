@@ -12,13 +12,14 @@ module top(
 	output logic selector, selector2
 );
 
-// define middle variables
-logic [3:0] sy = 0;
+// flipflops for inputs
 
-// call scanfsm to recieve key from keypad
-scanfsm m1(clk, reset, c0, c1, c2, c3, key);
+// call scanfsm to recieve decoded key from keypad
+scanfsm m1(clk, reset, c0, c1, c2, c3, decodedKey);
 
-// call xyz to decode with key
+// check decodedKey for switch bouncing
+
+
 
 // shift digit displayed
 
