@@ -5,14 +5,14 @@
 // calls internal high-speed oscillator and initializes a selector variable, 
 // which fluctuates at a frequency determines by counter
 module hsoscEnable(
-	output logic selector);
+	output logic selector, clk);
 
 // variables
-	logic int_osc;
 	logic pulse;
+	logic int_osc;
 	logic led_state = 0;
 	logic [24:0] counter = 0;
-	logic selector = 0;
+	//logic selector = 0;
 
 // Internal high-speed oscillator
 	HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
@@ -30,5 +30,5 @@ module hsoscEnable(
 		end
 	end
 
-
+assign clk = int_osc;
 endmodule

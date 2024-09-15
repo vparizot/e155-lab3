@@ -49,7 +49,7 @@ module scanfsm(
 			    else nextstate = S9;
 			S11: if (c0|c1|c2|c3) nextstate = S11;
 			    else nextstate = S9;
-			//default: nextstate = S11;
+			default: nextstate = S0;
 		endcase
 	//sim:/scanfsm_tb
 	
