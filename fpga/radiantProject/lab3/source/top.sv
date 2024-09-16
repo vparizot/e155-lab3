@@ -40,16 +40,15 @@ always_ff @(posedge clk) begin
 end
 
 // call scanfsm to recieve decoded key from keypad
-scanfsm m2(clk, c0, c1, c2, c3, keyDecoded, r, keyPressed);
+scanfsm m2(clk, reset, c0, c1, c2, c3, keyDecoded, r, keyPressed, enable);
 
-//assign r = ~rinv;
 
 // check decodedKey for switch bouncing
 keyBounce m3(clk, reset, keyDecoded, keyPressed, keyDebounced);
 
 
 // shift digit displayed
-shifter m4(clk, reset, keyDebounced, s1, s2);
+shifter m4(clk, reset, enable, keyDebounced, s1, s2);
 
 //oscilate selector variable
  

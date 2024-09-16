@@ -1,9 +1,9 @@
 
 module scanfsm(
-	input logic clk,
+	input logic clk, reset,
 	input logic c0, c1, c2, c3,
 	output logic [3:0] keyDecoded, r,
-	output logic keyPressed
+	output logic keyPressed, enable
 );
 
 	//logic [3:0] r; 
@@ -13,48 +13,50 @@ module scanfsm(
 	statetype state, nextstate;
 
 	// state register
-	always_ff @(posedge clk) //, posedge reset)
-		//if (reset) state <= S0;
-		state <= nextstate;//else state <= nextstate;
-
+	always_ff @(posedge clk) begin
+		if (reset == 0) state <= S0;
+		else state <= nextstate;
+	end
+	
 	assign r[0] = (state == S0) | (state == S1) | (state == S2);
 	assign r[1] = (state == S3) | (state == S4) | (state == S5);
 	assign r[2] = (state == S6) | (state == S7) | (state == S8);
 	assign r[3] = (state == S9) | (state == S10) | (state == S11);
 	assign keyPressed = (c0|c1|c2|c3);
+	assign enable = (state == S1) | (state == S4) | (state == S7) | (state == S10);
+	
 	// Next state logic
-	always_comb
+	always_comb begin
 		case (state)
-			S0: if (c0|c1|c2|c3) nextstate = S1;
+			S0: if (keyPressed) nextstate = S1;
 			    else nextstate = S3;
-			S1: if (c0|c1|c2|c3) nextstate = S2;
+			S1: if (keyPressed) nextstate = S2;
 			    else nextstate = S0;
-			S2: if (c0|c1|c2|c3) nextstate = S2;	// Next state logic
+			S2: if (keyPressed) nextstate = S2;	// Next state logic
 			    else nextstate = S0;
-			S3: if (c0|c1|c2|c3) nextstate = S4;
+			S3: if (keyPressed) nextstate = S4;
 			    else nextstate = S6;
-			S4: if (c0|c1|c2|c3) nextstate = S5;
+			S4: if (keyPressed) nextstate = S5;
 			    else nextstate = S3;
-			S5: if (c0|c1|c2|c3) nextstate = S5;
+			S5: if (keyPressed) nextstate = S5;
 			    else nextstate = S0;
-			S6: if (c0|c1|c2|c3) nextstate = S7;
+			S6: if (keyPressed) nextstate = S7;
 			    else nextstate = S9;
-			S7: if (c0|c1|c2|c3) nextstate = S8;
+			S7: if (keyPressed) nextstate = S8;
 			    else nextstate = S6;
-			S8: if (c0|c1|c2|c3) nextstate = S8;
+			S8: if (keyPressed) nextstate = S8;
 			    else nextstate = S6;
-			S9: if (c0|c1|c2|c3) nextstate = S10;
+			S9: if (keyPressed) nextstate = S10;
 			    else nextstate = S0;
-			S10: if (c0|c1|c2|c3) nextstate = S11;
+			S10: if (keyPressed) nextstate = S11;
 			    else nextstate = S9;
-			S11: if (c0|c1|c2|c3) nextstate = S11;
+			S11: if (keyPressed) nextstate = S11;
 			    else nextstate = S9;
 			default: nextstate = S0;
 		endcase
-	//sim:/scanfsm_tb
-	
+	end
 	// output logic
-	scanDecoder m1({r,c0,c1,c2,c3}, keyDecoded);
+	scanDecoder mod1({r,c0,c1,c2,c3}, keyDecoded);
 	
 
 	//assign key =  {r0,r1,r2,r3,c0,c1,c2,c3}; //(state == S1) |(state == S4)|(state == S7)|(state == S10 )&&
