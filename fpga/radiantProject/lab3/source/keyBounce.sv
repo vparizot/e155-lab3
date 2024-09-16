@@ -9,16 +9,16 @@ module keyBounce(
 
 //define counter variable
 logic [10:0] counter = 0;
-
-always_ff @(posedge clk)
+always_ff @(posedge clk) 
 	begin
-		if (reset) counter <= 0;
+		keyDebounced <= keyDecoded;
+		//if (reset == 0) counter <= 0;
 		
-		if (counter > 11'b11111111110) counter <= 6; // reset counter incase long button press
-		else if (counter > 5) keyDebounced = keyDecoded; // if threshold is met, output KeyDecoded
+		//if (counter > 11'b11111111110) counter <= 6; // reset counter incase long button press
+		//else if (counter > 5) keyDebounced = keyDecoded; // if threshold is met, output KeyDecoded
 	
-		if (keyPressed) counter <= counter + 1; // if key is pressed, add to counter
-		else counter <= 0; // reset counter if key is not pressed
+		//if (keyPressed) counter <= counter + 1; // if key is pressed, add to counter
+		//else counter <= 0; // reset counter if key is not pressed
 			
 	end
 endmodule

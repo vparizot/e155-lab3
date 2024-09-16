@@ -30,5 +30,5 @@ module hsoscEnable(
 		end
 	end
 
-assign clk = int_osc;
+assign clk = counter[4];
 endmodule

@@ -6,11 +6,14 @@
 
 module top(
 	input logic c0in, c1in, c2in, c3in, reset,
+	output logic [3:0] r,
 	output logic [6:0] segOut,
 	output logic selector, selector2
 );
 
-logic c0, c1, c2, c3, c0temp1,c1temp1,c2temp1,c3temp1, c0temp2, c1temp2, c2temp2, c3temp2;
+logic [3:0] sy = 0;
+logic c0, c1, c2, c3, c0temp1, c1temp1, c2temp1, c3temp1, c0temp2, c1temp2, c2temp2, c3temp2;
+
 
 hsoscEnable m1(selector, clk); // create clock signal
 
@@ -37,14 +40,16 @@ always_ff @(posedge clk) begin
 end
 
 // call scanfsm to recieve decoded key from keypad
-scanfsm m2(clk, reset, c0in, c1, c2, c3, keyDecoded,keyPressed);
+scanfsm m2(clk, c0, c1, c2, c3, keyDecoded, r, keyPressed);
+
+//assign r = ~rinv;
 
 // check decodedKey for switch bouncing
 keyBounce m3(clk, reset, keyDecoded, keyPressed, keyDebounced);
 
 
 // shift digit displayed
-shifter m4(keyDebounced, s1, s2);
+shifter m4(clk, reset, keyDebounced, s1, s2);
 
 //oscilate selector variable
  

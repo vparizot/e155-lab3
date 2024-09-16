@@ -25,7 +25,7 @@ always_comb
 			8'b0100_0001 : keyDecoded = 4'hd;
 			8'b0010_0001 : keyDecoded = 4'he;
 			8'b0001_0001 : keyDecoded = 4'hf;
-			default: keyDecoded = 4'h0;
+			default: keyDecoded = 4'b1111;
 		endcase
 	end
 endmodule

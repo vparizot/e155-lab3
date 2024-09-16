@@ -6,11 +6,11 @@ module shifter(
 
 always_ff @(posedge clk)
 begin
-	if (reset) begin
+	if (reset == 0) begin
 		s1 <= 0;
 		s2 <= 0;
 	end
-	if (s1 != keyDebounced) begin
+	else begin//if (s1 != keyDebounced) begin
 		s2 <= s1;
 		s1 <= keyDebounced;
 	end

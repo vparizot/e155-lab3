@@ -1,27 +1,27 @@
 
 module scanfsm(
-	input logic clk, reset,
+	input logic clk,
 	input logic c0, c1, c2, c3,
-	output logic [3:0] keyDecoded, 
+	output logic [3:0] keyDecoded, r,
 	output logic keyPressed
 );
 
-	logic [3:0] r; 
+	//logic [3:0] r; 
 
 	// define the states
 	typedef enum logic [3:0] {S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11} statetype;
 	statetype state, nextstate;
 
 	// state register
-	always_ff @(posedge clk, posedge reset)
-		if (reset) state <= S0;
-		else state <= nextstate;
+	always_ff @(posedge clk) //, posedge reset)
+		//if (reset) state <= S0;
+		state <= nextstate;//else state <= nextstate;
 
 	assign r[0] = (state == S0) | (state == S1) | (state == S2);
 	assign r[1] = (state == S3) | (state == S4) | (state == S5);
 	assign r[2] = (state == S6) | (state == S7) | (state == S8);
 	assign r[3] = (state == S9) | (state == S10) | (state == S11);
-	assign keyPressed = (state == S1) | (state == S2) | (state == S4)|(state == S5) | (state == S7) | (state == S8) | (state == S10) | (state == S11);
+	assign keyPressed = (c0|c1|c2|c3);
 	// Next state logic
 	always_comb
 		case (state)
