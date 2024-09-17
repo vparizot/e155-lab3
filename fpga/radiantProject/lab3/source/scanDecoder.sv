@@ -1,31 +1,31 @@
 
 module scanDecoder(
-	input logic [7:0] key,
+	input logic [3:0] r,
+	input logic c0,c1,c2,c3,
 	output logic [3:0] keyDecoded);
 // takes in dipswitch as 4 digit binary value and 
 // outputs hexidecimal value on seven segment display
 
-always_comb
-	begin
-		case (key) 
-		//  format: {r3,r2,r1,r0,c0,c1,c2,c3}
-			8'b0001_0100 : keyDecoded = 4'h0;
-			8'b1000_1000 : keyDecoded = 4'h1;
-			8'b1000_0100 : keyDecoded = 4'h2;
-			8'b1000_0010 : keyDecoded = 4'h3;
-			8'b0100_1000 : keyDecoded = 4'h4;
-			8'b0100_0100 : keyDecoded = 4'h5;
-			8'b0100_0010 : keyDecoded = 4'h6;
-			8'b0010_1000 : keyDecoded = 4'h7;
-			8'b0010_0100 : keyDecoded = 4'h8;
-			8'b0010_0010 : keyDecoded = 4'h9;
-			8'b0001_1000 : keyDecoded = 4'ha;
-			8'b0001_0010 : keyDecoded = 4'hb;
-			8'b1000_0001 : keyDecoded = 4'hc;
-			8'b0100_0001 : keyDecoded = 4'hd;
-			8'b0010_0001 : keyDecoded = 4'he;
-			8'b0001_0001 : keyDecoded = 4'hf;
-			default: keyDecoded = 4'b1111;
+always_comb begin
+		case ({r, c0, c1, c2, c3}) 
+		  //format: {r3,r2,r1,r0,c0,c1,c2,c3}
+			{4'b0001 , 1'b0 , 1'b1 , 1'b0 , 1'b0}: keyDecoded = 4'b0000;
+			{4'b1000, 1'b1, 1'b0, 1'b0, 1'b0}: keyDecoded = 4'b0001;
+			{4'b1000, 1'b0, 1'b1, 1'b0, 1'b0}: keyDecoded = 4'b0010;
+			{4'b1000, 1'b0, 1'b0, 1'b1, 1'b0}: keyDecoded = 4'b0011;
+			{4'b0100, 1'b1, 1'b0, 1'b0, 1'b0}: keyDecoded = 4'b0100;
+			{4'b0100, 1'b0, 1'b1, 1'b0, 1'b0}: keyDecoded = 4'b0101;
+			{4'b0100, 1'b0, 1'b0, 1'b1, 1'b0}: keyDecoded = 4'b0110;
+			{4'b0010, 1'b1, 1'b0, 1'b0, 1'b0}: keyDecoded = 4'b0111;
+			{4'b0010, 1'b0, 1'b1, 1'b0, 1'b0}: keyDecoded = 4'b1000;
+			{4'b0010, 1'b0, 1'b0, 1'b1, 1'b0}: keyDecoded = 4'b1001;
+			{4'b0001, 1'b1, 1'b0, 1'b0, 1'b0}: keyDecoded = 4'b1010;
+			{4'b0001, 1'b0, 1'b0, 1'b1, 1'b0}: keyDecoded = 4'b1011;
+			{4'b1000, 1'b0, 1'b0, 1'b0, 1'b1}: keyDecoded = 4'b1100;
+			{4'b0100, 1'b0, 1'b0, 1'b0, 1'b1}: keyDecoded = 4'b1101;
+			{4'b0010, 1'b0, 1'b0, 1'b0, 1'b1} : keyDecoded = 4'b1110;
+			{4'b0001, 1'b0, 1'b0, 1'b0, 1'b1} : keyDecoded = 4'b1111;
+			default: keyDecoded = 4'b1011;
 		endcase
 	end
 endmodule

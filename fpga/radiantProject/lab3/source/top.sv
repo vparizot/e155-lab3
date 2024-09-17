@@ -11,37 +11,35 @@ module top(
 	output logic selector, selector2
 );
 
-logic [3:0] sy = 0;
-logic c0, c1, c2, c3, c0temp1, c1temp1, c2temp1, c3temp1, c0temp2, c1temp2, c2temp2, c3temp2;
-
+logic [3:0] keyDecoded, keyDebounced, s1, s2, sy;
+//logic c0, c1, c2, c3, c0temp1, c1temp1, c2temp1, c3temp1, c0temp2, c1temp2, c2temp2, c3temp2;
 
 hsoscEnable m1(selector, clk); // create clock signal
 
 // flipflops for inputs
-always_ff @(posedge clk) begin
-		c0temp1 <= c0in;
-		c1temp1 <= c1in;
-		c2temp1 <= c2in;
-		c3temp1 <= c3in;
-end
+//always_ff @(posedge clk) begin
+		//c0temp1 <= c0in;
+		//c1temp1 <= c1in;
+		//c2temp1 <= c2in;
+		//c3temp1 <= c3in;
+//end
 
-always_ff @(posedge clk) begin
-		c0temp2 <= c0temp1;
-		c1temp2 <= c1temp1;
-		c2temp2 <= c2temp1;
-		c3temp2 <= c3temp1;
-end
+//always_ff @(posedge clk) begin
+		//c0temp2 <= c0temp1;
+		//c1temp2 <= c1temp1;
+		//c2temp2 <= c2temp1;
+		//c3temp2 <= c3temp1;
+//end
 
-always_ff @(posedge clk) begin
-		c0 <=  c0temp2;
-		c1 <=  c1temp2;
-		c2 <=  c2temp2;
-		c3 <=  c3temp2;
-end
+//always_ff @(posedge clk) begin
+		//c0 <=  c0temp2;
+		//c1 <=  c1temp2;
+		//c2 <=  c2temp2;
+		//c3 <=  c3temp2;
+//end
 
 // call scanfsm to recieve decoded key from keypad
-scanfsm m2(clk, reset, c0, c1, c2, c3, keyDecoded, r, keyPressed, enable);
-
+scanfsm m2(clk, reset, c0in, c1in, c2in, c3in, keyDecoded, r, keyPressed, enable);
 
 // check decodedKey for switch bouncing
 keyBounce m3(clk, reset, keyDecoded, keyPressed, keyDebounced);
