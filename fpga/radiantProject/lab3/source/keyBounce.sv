@@ -14,9 +14,15 @@ module keyBounce(
 	logic enabled;
 	
 	always_ff @(posedge clk) begin
-		if (reset == 0) state <= S0;
+		if (reset == 0) begin
+				state <= S0;
+				counter <=0;
+		end
 		else if (state == S1) begin
-			if (counter > 100) state <= S2;
+			if (counter > 50) begin
+				state <= S2;
+				counter <= 0;
+			end
 			else begin 
 				counter <= counter + 1;
 				state <= nextstate;
