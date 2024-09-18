@@ -3,7 +3,7 @@ module scanfsm(
 	input logic clk, reset,
 	input logic c0, c1, c2, c3,
 	output logic [3:0] keyDecoded, r,
-	output logic keyPressed, enable
+	output logic keyPressed
 );
 
 	//logic [3:0] keyDecoded; 
@@ -59,7 +59,7 @@ module scanfsm(
 	
 	
 	assign keyPressed = (c0|c1|c2|c3);
-	assign enable = (state == S1) || (state == S4) || (state == S7) || (state == S10);
+	//assign enable = (state == S1) || (state == S4) || (state == S7) || (state == S10);
 	scanDecoder mod1(r, c0, c1, c2, c3, keyDecoded);
 
 	//assign keyDecoded = 4'b1011;
