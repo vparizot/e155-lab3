@@ -1,10 +1,13 @@
+// Victoria Parizot
+// vparizot@g.hmc.edu
+// 09/19/2024
+
+// descr: decodes the row and column pairs into the decoded key value
 
 module scanDecoder(
 	input logic [3:0] r,
 	input logic c0,c1,c2,c3,
 	output logic [3:0] keyDecoded);
-// takes in dipswitch as 4 digit binary value and 
-// outputs hexidecimal value on seven segment display
 
 always_comb begin
 		case ({r, c0, c1, c2, c3}) 
@@ -25,7 +28,7 @@ always_comb begin
 			{4'b0100, 1'b0, 1'b0, 1'b0, 1'b1}: keyDecoded = 4'b1101;
 			{4'b0010, 1'b0, 1'b0, 1'b0, 1'b1} : keyDecoded = 4'b1110;
 			{4'b0001, 1'b0, 1'b0, 1'b0, 1'b1} : keyDecoded = 4'b1111;
-			default: keyDecoded = 4'b1011;
+			default: keyDecoded = 4'b1111;
 		endcase
 	end
 endmodule

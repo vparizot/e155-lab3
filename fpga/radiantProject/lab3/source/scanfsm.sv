@@ -1,3 +1,8 @@
+// Victoria Parizot
+// vparizot@g.hmc.edu
+// 09/19/2024
+
+// descr: scans for key presses on keypad with an FSM. calls submodule scan decoder to get key value
 
 module scanfsm(
 	input logic clk, reset,
@@ -11,7 +16,6 @@ module scanfsm(
 	// define the states
 	typedef enum logic [3:0] {S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11} statetype;
 	statetype state, nextstate;
-	//logic reset = ~invreset;
 	
 	// state register
 	always_ff @(posedge clk) begin
@@ -24,7 +28,8 @@ module scanfsm(
 	assign r[1] = (state == S3) || (state == S4) || (state == S5);
 	assign r[2] = (state == S6) || (state == S7) || (state == S8);
 	assign r[3] = (state == S9) || (state == S10) || (state == S11);
-
+	assign keyPressed = (c0||c1||c2||c3);
+	
 // Next state logic
 	always_comb 
 		case (state)
@@ -55,16 +60,12 @@ module scanfsm(
 			default: nextstate = S0;
 		endcase
 	
-	// output logic
 	
 	
-	assign keyPressed = (c0|c1|c2|c3);
-	//assign enable = (state == S1) || (state == S4) || (state == S7) || (state == S10);
+
 	scanDecoder mod1(r, c0, c1, c2, c3, keyDecoded);
 
-	//assign keyDecoded = 4'b1011;
 
-	//assign key =  {r0,r1,r2,r3,c0,c1,c2,c3}; //(state == S1) |(state == S4)|(state == S7)|(state == S10 )&&
 
 
 endmodule  

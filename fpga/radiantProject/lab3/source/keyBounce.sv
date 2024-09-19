@@ -1,3 +1,8 @@
+// Victoria Parizot
+// vparizot@g.hmc.edu
+// 09/19/2024
+
+// descr: FSM to deal with key bouncing, calls sub module shifter to shift discplay
 
 module keyBounce(
 	input logic clk, reset,
@@ -7,7 +12,7 @@ module keyBounce(
 	//output logic [3:0] keyDebounced
 );
 
-	typedef enum logic [1:0] {S0 = 0, S1 = 1, S2 = 2, S3 = 3} statetype;
+	typedef enum logic [1:0] {St0 = 0, St1 = 1, St2 = 2, St3 = 3} statetype;
 	statetype state, nextstate;
 	
 	logic [11:0] counter;
@@ -15,12 +20,12 @@ module keyBounce(
 	
 	always_ff @(posedge clk) begin
 		if (reset == 0) begin
-				state <= S0;
+				state <= St0;
 				counter <=0;
 		end
-		else if (state == S1) begin
+		else if (state == St1) begin
 			if (counter > 50) begin
-				state <= S2;
+				state <= St2;
 				counter <= 0;
 			end
 			else begin 
@@ -35,52 +40,27 @@ module keyBounce(
 	always_comb 
 		case (state)
 			// Waiting state
-			S0: if (keyPressed) nextstate = S1;
-			    else nextstate = S0;
+			St0: if (keyPressed) nextstate = St1;
+			    else nextstate = St0;
 					
 			//Counting state -- ADD LOGIC
-			S1: if (keyPressed == 0) nextstate = S0; // if button pressed, think longer
-			    else nextstate = S0; // if button unpressed, go to waiting state
+			St1: if (keyPressed == 0) nextstate = St0; // if button pressed, think longer
+			    else nextstate = St1; // if button unpressed, go to waiting state
 					
 			//Print
-			S2: if (keyPressed) nextstate = S3;
-				else nextstate = S3;
+			St2: if (keyPressed) nextstate = St3;
+				else nextstate = St3;
 					
 			//holding state
-			S3: if (keyPressed) nextstate = S3;
-				else nextstate = S0;
+			St3: if (keyPressed) nextstate = St3;
+				else nextstate = St0;
 					
-			default: nextstate = S0;
+			default: nextstate = St0;
 		endcase
 		
-		assign enabled = (state == S2);
+		assign enabled = (state == St2);
 		
 		logic [3:0] s1, s2;
 		shifter mod1(clk, reset, enabled,keyDecoded, s1, s2);
 
-	
-	
-				
-
-
-
-//define counter variable
-/*logic [12:0] counter = 0;
-always_ff @(posedge clk) 
-	begin
-		//if (keyPressed) keyDebounced <= keyDecoded;		
-			
-		counter <= counter +1;
-		enabled <= 0;		
-		if ((reset == 0) || (~keyPressed)) begin
-			counter <= 0;
-		end
-		else if (counter == 50) begin
-			
-			enabled <= 1;
-		end
-		if (enabled) keyDebounced <= keyDecoded;
-		//else if (counter > 100) counter <= 51;		
-			
-	end*/
 endmodule
