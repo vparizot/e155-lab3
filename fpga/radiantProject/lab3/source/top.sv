@@ -19,11 +19,14 @@ logic c0, c1, c2, c3, c0temp1, c1temp1, c2temp1, c3temp1;
 hsoscEnable m1(selector, clk); 
 
 //synchronizers for async button press input
-always @(posedge clk) begin
+always_ff @(posedge clk) begin
 		c0temp1 <= c0in;
 		c1temp1 <= c1in;
 		c2temp1 <= c2in;
 		c3temp1 <= c3in;
+end
+
+always_ff @(posedge clk) begin
 		c0 <= c0temp1;
 		c1 <= c1temp1;
 		c2 <= c2temp1;
